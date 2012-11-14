@@ -1,5 +1,8 @@
-Git pre-commit hook for checking php syntax and coding standards
-----------------------------------------------------------------
+Git pre-commit & commit-msg hooks
+---------------------------------
+
+- pre-commit - for checking php syntax and coding standards
+- commit-msg - for checking if commit message contains issue number
 
 Requirements
 ============
@@ -11,15 +14,16 @@ Setup
 =====
 Clone this repo to you home dir:
 
-`git clone https://github.com/martinssipenko/php-git-pre-commit-hook.git /home/<username>/php-git-pre-commit-hook`
+`git clone https://github.com/martinssipenko/php-git-hooks.git /home/<username>/php-git-hooks`
 	
-Allow file to be executed:
+Allow files to be executed:
 
-`chmod /home/<username>/php-git-pre-commit-hook/pre-commit`
+`chmod -R +x /home/<username>/php-git-hooks/`
 	
-Create a symlink:
+Create a symlinks:
 
-`ln -s /home/<username>/php-git-pre-commit-hook/pre-commit /home/<username>/<you_repo>/.git/hooks/pre-commit`
+`ln -s /home/<username>/php-git-hooks/pre-commit /home/<username>/<you_repo>/.git/hooks/pre-commit`
+`ln -s /home/<username>/php-git-hooks/commit-msg /home/<username>/<you_repo>/.git/hooks/commit-msg`
 
 Notes
 =====
