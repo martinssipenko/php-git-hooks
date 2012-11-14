@@ -1,0 +1,23 @@
+#!/usr/bin/php
+<?php
+
+$commit_msg_file = $argv[1];
+$exit_status = 0;
+$pattern = '/[W][E][B][-][0-9]+[ ]/';
+
+if ( is_file( $commit_msg_file ) ) {
+	$filename = $argv[1];
+	$handle = fopen( $filename, 'r' );
+	$contents = fread($handle, filesize( $filename ) );
+	fclose( $handle );
+	preg_match( $pattern, $contents, $matches );
+	if ( count( $matches ) === 0 ) {
+		$exit_status = 1;
+		echo "\nCommit message MUST contain issue number!\ne.g:\nWEB-123 Your commit message\n\n";
+	}
+} else {
+	echo "Can't find commit message file!\n";
+	
+}
+
+exit( $exit_status );
